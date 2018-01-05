@@ -16,18 +16,15 @@ Run </br>
 ` make clean ` </br>
 to delete all class files and output *(files in ./src/resources/out).
 
-
-should compile all of the java files underneath this directory
-
-For the simulation:
-1.run (in separate terminals)
-
-` java Simulation.AServer `
-
-This server will be listening for incoming connections on the default port (5050) for clients that implement the following protocol:
+#### To run the simulation:
+run (in separate terminals) </br>
+` java Simulation.AServer ` </br>
+and </br>
+` java Simulation.AClient `
 
 ## Handshake and Data Transfer Model
 
+This server will be listening for incoming connections on the default port (5050) for clients that implement the following protocol:
 
 ![screenshot](https://github.com/tjenki35/ssl-file-server/blob/master/resources/SSL-file-server-diagram.jpg?raw=true)
 
