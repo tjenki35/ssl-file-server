@@ -28,22 +28,26 @@ This server will be listening for incoming connections on the default port (5050
 
 ## Handshake and Data Transfer Model
 
-Client                          Server
-   ------------------------------>   1. Client node initiates connection with Server
+Client  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Server </br> </br>
 
-   ------------------------------>   2. The Client sends hello record to inform the server of the cipher/compression parameters. 
 
-   <------------------------------   3. The server verifies the parameters and generated session id (*session id is disregarded in this current state of implementation)
-
-   <------------------------------   4. The server sends a self-signed certificate (<N,e>) to the client.
-
-   ------------------------------>   5. After verifying the self-signed certificate the client sends a certificate as well. 
-
-   <----------------------------->   6. Using this gained public key information both the server and client send encrypted nonces. 
+   ------------------------------></br>
+   1. Client node initiates connection with Server</br>
+   ------------------------------></br>
+   2. The Client sends hello record to inform the server of the cipher/compression parameters.</br>
+   <------------------------------</br>   
+   3. The server verifies the parameters and generated session id (*session id is disregarded in this current state of implementation)
+   </br>
+   <------------------------------</br>
+   4. The server sends a self-signed certificate ("<N,e>") to the client. </br>
+   ------------------------------> </br>
+   5. After verifying the self-signed certificate the client sends a certificate as well. </br>
+   <-----------------------------> </br> 
+   6. Using this gained public key information both the server and client send encrypted nonces. 
                                         These nonces are then xored to create a master key. From this master key four additional keys
-                                        are generated for encryption and integerity protection (for one-way communication from server to client). 
-      
-   <------------------------------   7. The Server then delivers the encrypted payload to the client.    
+                                        are generated for encryption and integerity protection (for one-way communication from server to client). </br>      
+   <------------------------------ </br>
+   7. The Server then delivers the encrypted payload to the client. </br>
 
 
 - ` java Simulation.AClient #starts the client and connects to port 5050 `
